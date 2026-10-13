@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input Price Comparison - AgriLocal</title>
+  <meta name="description" content="Compare certified prices of seeds, fertilizers, and pest management products across local agro dealers.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main-content" class="skip-link" data-i18n="skipLink">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="AgriLocal Home">
+        <span class="logo-icon" aria-hidden="true">🌱</span>
+        <span class="logo-text">Agri<strong>Local</strong></span>
+      </a>
+
+      <div class="header-controls">
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle color theme" title="Toggle theme">
+          <span class="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+        <button id="lang-toggle" class="btn-lang" aria-label="Switch language to Telugu" title="Switch language">
+          <span class="lang-text">తెలుగు</span>
+        </button>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link" data-i18n="navHome">Home</a></li>
+          <li><a href="shops.html" class="nav-link" data-i18n="navShops">Shop Directory</a></li>
+          <li><a href="compare.html" class="nav-link active" data-i18n="navCompare">Price Compare</a></li>
+          <li><a href="project.html" class="nav-link" data-i18n="navProject">Project Story</a></li>
+          <li><a href="gallery.html" class="nav-link" data-i18n="navGallery">Field Gallery</a></li>
+          <li><a href="impact.html" class="nav-link" data-i18n="navImpact">Community Impact</a></li>
+          <li><a href="feedback.html" class="nav-link" data-i18n="navFeedback">Feedback & Entry</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Demo Notice Banner -->
+  <div class="demo-banner" role="alert">
+    <div class="container flex-banner">
+      <span class="banner-icon" aria-hidden="true">ℹ️</span>
+      <span class="banner-text" data-i18n="demoBannerText">Demo data collected for academic Community Service Project demonstration — verify stock and current price directly with shops prior to purchase.</span>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section class="page-header">
+      <div class="container">
+        <h1 data-i18n="comparePageTitle">Agricultural Input Price Comparison</h1>
+        <p class="page-lead" data-i18n="comparePageSubtitle">Select any agricultural input below to evaluate current retail rates across registered stores in Dakamarri and nearby hubs.</p>
+      </div>
+    </section>
+
+    <section class="section compare-section">
+      <div class="container">
+        <!-- Product Selector Controls -->
+        <div class="card selector-card">
+          <div class="filter-row">
+            <div class="filter-col flex-grow">
+              <label for="product-select" class="form-label" data-i18n="selectProductLabel">Select Agricultural Input:</label>
+              <select id="product-select" class="form-select">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+            <div class="filter-col">
+              <label for="product-search-filter" class="form-label" data-i18n="quickFilterInputLabel">Quick Filter List:</label>
+              <input type="text" id="product-search-filter" class="form-input" placeholder="Type to filter..." data-i18n-attr="placeholder:searchPlaceholder">
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Details Snapshot -->
+        <div id="product-snapshot" class="card product-snapshot-card mt-3">
+          <div class="snapshot-header">
+            <div>
+              <span id="snapshot-category" class="badge badge-accent">Category</span>
+              <h2 id="snapshot-title" class="snapshot-title mt-1">Product Title</h2>
+            </div>
+            <div class="lowest-price-badge-wrap">
+              <span class="badge-label" data-i18n="lowestPriceLabel">Lowest Benchmark Price:</span>
+              <div id="snapshot-best-price" class="best-price-val">₹0</div>
+            </div>
+          </div>
+          <p id="snapshot-description" class="snapshot-desc text-muted">Product description and recommended usage.</p>
+        </div>
+
+        <!-- Price Disclaimer Alert -->
+        <div class="alert-notice mt-3" role="note">
+          <span class="alert-icon" aria-hidden="true">⚠️</span>
+          <p data-i18n="priceDisclaimer">Prices are shop-listed and may change dynamically based on batch or market conditions. Please confirm with the shop before travelling.</p>
+        </div>
+
+        <!-- Comparison Table / Responsive Cards -->
+        <div class="table-container mt-4">
+          <table class="price-table" id="price-table">
+            <thead>
+              <tr>
+                <th scope="col" data-i18n="colShop">Shop Name & Area</th>
+                <th scope="col" data-i18n="colAddress">Location Details</th>
+                <th scope="col" data-i18n="colPrice">Quoted Price</th>
+                <th scope="col" data-i18n="colUnit">Package Unit</th>
+                <th scope="col" data-i18n="colLastUpdated">Last Updated</th>
+                <th scope="col" data-i18n="colAction">Action</th>
+              </tr>
+            </thead>
+            <tbody id="price-table-body">
+              <!-- Populated dynamically by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-block">
+        <div class="footer-brand">
+          <span class="logo-icon" aria-hidden="true">🌱</span>
+          <span class="logo-text">Agri<strong>Local</strong></span>
+        </div>
+        <p class="footer-tagline">Empowering farming communities with digital shop discovery and transparent input pricing.</p>
+        <p class="footer-academic">
+          <strong>Community Service Project</strong><br>
+          Department of Electronics & Communication Engineering (ECE-A, 3rd Year)<br>
+          Raghu Engineering College, Visakhapatnam
+        </p>
+      </div>
+
+      <div class="footer-block">
+        <h4 data-i18n="footerQuickLinks">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html" data-i18n="navHome">Home</a></li>
+          <li><a href="shops.html" data-i18n="navShops">Shop Directory</a></li>
+          <li><a href="compare.html" data-i18n="navCompare">Price Compare</a></li>
+          <li><a href="project.html" data-i18n="navProject">Project Story</a></li>
+          <li><a href="gallery.html" data-i18n="navGallery">Field Gallery</a></li>
+          <li><a href="impact.html" data-i18n="navImpact">Community Impact</a></li>
+          <li><a href="feedback.html" data-i18n="navFeedback">Feedback & Entry</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-block">
+        <h4 data-i18n="footerFieldDetails">Field Details</h4>
+        <p class="footer-meta">
+          <strong>Village:</strong> Dakamarri Village<br>
+          <strong>Mandal:</strong> <span class="mandal-name">Bheemunipatnam Mandal</span><br>
+          <strong>District:</strong> Visakhapatnam, Andhra Pradesh<br>
+          <strong>PIN:</strong> 531162 | 17.9900° N, 83.4004° E<br>
+          <strong>Survey Date:</strong> 08 October 2026<br>
+          <strong>Cohort Reg. Nos.:</strong> 24981A0422 to 24981A0430
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container text-center">
+        <p>© 2026 AgriLocal CSP Initiative. Designed for rural accessibility & verified community demonstration.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll back to top" title="Back to top">
+    <span aria-hidden="true">↑</span>
+  </button>
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

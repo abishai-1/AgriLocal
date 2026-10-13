@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Field Gallery & Survey Documentation - AgriLocal</title>
+  <meta name="description" content="Photographic documentation of student field visit, farmer interviews, and inputs cataloged in Dakamarri Village.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main-content" class="skip-link" data-i18n="skipLink">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="AgriLocal Home">
+        <span class="logo-icon" aria-hidden="true">🌱</span>
+        <span class="logo-text">Agri<strong>Local</strong></span>
+      </a>
+
+      <div class="header-controls">
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle color theme" title="Toggle theme">
+          <span class="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+        <button id="lang-toggle" class="btn-lang" aria-label="Switch language to Telugu" title="Switch language">
+          <span class="lang-text">తెలుగు</span>
+        </button>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link" data-i18n="navHome">Home</a></li>
+          <li><a href="shops.html" class="nav-link" data-i18n="navShops">Shop Directory</a></li>
+          <li><a href="compare.html" data-i18n="navCompare">Price Compare</a></li>
+          <li><a href="project.html" class="nav-link" data-i18n="navProject">Project Story</a></li>
+          <li><a href="gallery.html" class="nav-link active" data-i18n="navGallery">Field Gallery</a></li>
+          <li><a href="impact.html" class="nav-link" data-i18n="navImpact">Community Impact</a></li>
+          <li><a href="feedback.html" class="nav-link" data-i18n="navFeedback">Feedback & Entry</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-header">
+      <div class="container">
+        <h1 data-i18n="galleryPageTitle">Fieldwork Photographic Documentation</h1>
+        <p class="page-lead" data-i18n="galleryPageSubtitle">Visual records from Dakamarri Village field surveys, VRO clearance, and on-site farmer concept validations.</p>
+      </div>
+    </section>
+
+    <section class="section gallery-section">
+      <div class="container">
+        <!-- Ethics & Consent Note -->
+        <div class="alert-notice mb-4">
+          <span class="alert-icon" aria-hidden="true">📷</span>
+          <p><strong>Fieldwork Ethics Note:</strong> Photos shared with consent. Documentation conducted exclusively for academic assessment under the Department of ECE, Raghu Engineering College.</p>
+        </div>
+
+        <!-- Responsive Image Grid (Rendered dynamically from data.js) -->
+        <div id="gallery-grid" class="gallery-grid" role="region" aria-label="Field Photo Gallery">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Accessible Modal Lightbox -->
+    <div id="lightbox-modal" class="lightbox-modal hidden" role="dialog" aria-modal="true" aria-label="Image preview lightbox">
+      <div class="lightbox-overlay" id="lightbox-backdrop"></div>
+      <div class="lightbox-container">
+        <button id="lightbox-close" class="btn-lightbox-close" aria-label="Close image preview">&times;</button>
+        <button id="lightbox-prev" class="btn-lightbox-nav btn-prev" aria-label="Previous image">&#10094;</button>
+        <div class="lightbox-content">
+          <img id="lightbox-img" src="" alt="" class="lightbox-img">
+          <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+        <button id="lightbox-next" class="btn-lightbox-nav btn-next" aria-label="Next image">&#10095;</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-block">
+        <div class="footer-brand">
+          <span class="logo-icon" aria-hidden="true">🌱</span>
+          <span class="logo-text">Agri<strong>Local</strong></span>
+        </div>
+        <p class="footer-tagline">Empowering farming communities with digital shop discovery and transparent input pricing.</p>
+        <p class="footer-academic">
+          <strong>Community Service Project</strong><br>
+          Department of Electronics & Communication Engineering (ECE-A, 3rd Year)<br>
+          Raghu Engineering College, Visakhapatnam
+        </p>
+      </div>
+
+      <div class="footer-block">
+        <h4 data-i18n="footerQuickLinks">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html" data-i18n="navHome">Home</a></li>
+          <li><a href="shops.html" data-i18n="navShops">Shop Directory</a></li>
+          <li><a href="compare.html" data-i18n="navCompare">Price Compare</a></li>
+          <li><a href="project.html" data-i18n="navProject">Project Story</a></li>
+          <li><a href="gallery.html" data-i18n="navGallery">Field Gallery</a></li>
+          <li><a href="impact.html" data-i18n="navImpact">Community Impact</a></li>
+          <li><a href="feedback.html" data-i18n="navFeedback">Feedback & Entry</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-block">
+        <h4 data-i18n="footerFieldDetails">Field Details</h4>
+        <p class="footer-meta">
+          <strong>Village:</strong> Dakamarri Village<br>
+          <strong>Mandal:</strong> <span class="mandal-name">Bheemunipatnam Mandal</span><br>
+          <strong>District:</strong> Visakhapatnam, Andhra Pradesh<br>
+          <strong>PIN:</strong> 531162 | 17.9900° N, 83.4004° E<br>
+          <strong>Survey Date:</strong> 08 October 2026<br>
+          <strong>Cohort Reg. Nos.:</strong> 24981A0422 to 24981A0430
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container text-center">
+        <p>© 2026 AgriLocal CSP Initiative. Designed for rural accessibility & verified community demonstration.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll back to top" title="Back to top">
+    <span aria-hidden="true">↑</span>
+  </button>
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

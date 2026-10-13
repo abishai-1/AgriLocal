@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Feedback & Shop Logging - AgriLocal</title>
+  <meta name="description" content="Share feedback on AgriLocal and preview the future shopkeeper inventory logging workflow.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main-content" class="skip-link" data-i18n="skipLink">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="AgriLocal Home">
+        <span class="logo-icon" aria-hidden="true">🌱</span>
+        <span class="logo-text">Agri<strong>Local</strong></span>
+      </a>
+
+      <div class="header-controls">
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle color theme" title="Toggle theme">
+          <span class="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+        <button id="lang-toggle" class="btn-lang" aria-label="Switch language to Telugu" title="Switch language">
+          <span class="lang-text">తెలుగు</span>
+        </button>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link" data-i18n="navHome">Home</a></li>
+          <li><a href="shops.html" class="nav-link" data-i18n="navShops">Shop Directory</a></li>
+          <li><a href="compare.html" class="nav-link" data-i18n="navCompare">Price Compare</a></li>
+          <li><a href="project.html" class="nav-link" data-i18n="navProject">Project Story</a></li>
+          <li><a href="gallery.html" class="nav-link" data-i18n="navGallery">Field Gallery</a></li>
+          <li><a href="impact.html" class="nav-link" data-i18n="navImpact">Community Impact</a></li>
+          <li><a href="feedback.html" class="nav-link active" data-i18n="navFeedback">Feedback & Entry</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-header">
+      <div class="container">
+        <h1 data-i18n="feedbackPageTitle">Community Feedback & Shop Logging</h1>
+        <p class="page-lead" data-i18n="feedbackPageSubtitle">Participate in improving AgriLocal. Submit survey impressions or simulate how local dealers log retail pricing.</p>
+      </div>
+    </section>
+
+    <!-- Client-side Storage Notice & Privacy Note -->
+    <section class="section feedback-section">
+      <div class="container">
+        <div class="alert-notice mb-4" role="note">
+          <span class="alert-icon" aria-hidden="true">🔒</span>
+          <div>
+            <strong>Front-End Demonstration & Privacy Guarantee:</strong>
+            <p>All submissions are saved locally on your browser using web localStorage (no external servers or backend databases are invoked). Data remains private to your device.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <!-- Form 1: Community Feedback -->
+          <div class="card">
+            <div class="card-header-styled">
+              <span class="badge badge-accent">Form A</span>
+              <h2 data-i18n="feedbackFormTitle">Community Survey & Feedback</h2>
+              <p class="text-muted" data-i18n="feedbackFormSubtitle">Provide comments to help our student engineering cohort improve accessibility.</p>
+            </div>
+
+            <form id="feedback-form" novalidate class="styled-form mt-3">
+              <div class="form-group">
+                <label for="fb-name" class="form-label">
+                  <span data-i18n="formName">Full Name</span>
+                  <span class="optional-tag">(Optional)</span>
+                </label>
+                <input type="text" id="fb-name" class="form-input" placeholder="e.g., K. Appala Naidu">
+              </div>
+
+              <div class="form-group">
+                <label for="fb-role" class="form-label" data-i18n="formRole">Your Primary Role <span class="required">*</span></label>
+                <select id="fb-role" class="form-select" required>
+                  <option value="" disabled selected>-- Select your role --</option>
+                  <option value="Farmer" data-i18n="roleFarmer">Farmer / Cultivator</option>
+                  <option value="Shop Owner" data-i18n="roleShopOwner">Agro Shop Owner / Dealer</option>
+                  <option value="Student / Academic" data-i18n="roleStudent">Student / Academic Researcher</option>
+                  <option value="Community Member" data-i18n="roleOther">Other Community Member</option>
+                </select>
+                <div class="form-error" id="fb-role-error" aria-live="polite"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="fb-lang" class="form-label" data-i18n="formPreferredLang">Preferred Language <span class="required">*</span></label>
+                <select id="fb-lang" class="form-select" required>
+                  <option value="Telugu">తెలుగు (Telugu)</option>
+                  <option value="English">English</option>
+                  <option value="Both">Both (ద్విభాష / Bilingual)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" data-i18n="formRating">Overall Portal Usefulness Rating <span class="required">*</span></label>
+                <div class="rating-group" role="radiogroup" aria-label="Portal usefulness rating">
+                  <label class="radio-label">
+                    <input type="radio" name="fb-rating" value="5" checked> ⭐ 5 - Excellent
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="fb-rating" value="4"> ⭐ 4 - Good
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="fb-rating" value="3"> ⭐ 3 - Satisfactory
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="fb-rating" value="2"> ⭐ 2 - Needs Work
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="fb-comments" class="form-label" data-i18n="formComments">Feedback & Observations <span class="required">*</span></label>
+                <textarea id="fb-comments" class="form-textarea" rows="4" placeholder="Share your suggestions, village requirements, or thoughts on seed availability..." required></textarea>
+                <div class="form-error" id="fb-comments-error" aria-live="polite"></div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" data-i18n="btnSubmitFeedback">Submit Feedback</button>
+                <button type="reset" class="btn btn-ghost" data-i18n="btnReset">Reset</button>
+              </div>
+              <div id="fb-success-msg" class="form-success mt-2 hidden" role="status" aria-live="polite">
+                ✓ Feedback recorded locally in browser! Thank you for contributing.
+              </div>
+            </form>
+          </div>
+
+          <!-- Form 2: Front-End Shopkeeper Logging Workflow -->
+          <div class="card">
+            <div class="card-header-styled">
+              <span class="badge badge-warning">Form B</span>
+              <h2 data-i18n="shopEntryFormTitle">Add / Update Shop Inventory</h2>
+              <p class="text-muted" data-i18n="shopEntryFormSubtitle">Interactive prototype illustrating the upcoming shopkeeper portal workflow.</p>
+            </div>
+
+            <form id="shop-entry-form" novalidate class="styled-form mt-3">
+              <div class="form-group">
+                <label for="se-shopname" class="form-label" data-i18n="formShopName">Agro Shop Name <span class="required">*</span></label>
+                <input type="text" id="se-shopname" class="form-input" placeholder="e.g., Sri Venkateswara Kisan Kendra" required>
+                <div class="form-error" id="se-shopname-error" aria-live="polite"></div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group flex-1">
+                  <label for="se-area" class="form-label" data-i18n="formArea">Mandal Area <span class="required">*</span></label>
+                  <select id="se-area" class="form-select" required>
+                    <option value="" disabled selected>-- Area --</option>
+                    <option value="Dakamarri">Dakamarri</option>
+                    <option value="Tagarapuvalasa">Tagarapuvalasa</option>
+                    <option value="Anandapuram">Anandapuram</option>
+                  </select>
+                  <div class="form-error" id="se-area-error" aria-live="polite"></div>
+                </div>
+
+                <div class="form-group flex-1">
+                  <label for="se-phone" class="form-label" data-i18n="formPhone">Contact Phone <span class="required">*</span></label>
+                  <input type="tel" id="se-phone" class="form-input" placeholder="e.g., 90000 00009" required pattern="[0-9\s]{10,12}">
+                  <div class="form-error" id="se-phone-error" aria-live="polite"></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="se-product" class="form-label" data-i18n="formProduct">Product Name <span class="required">*</span></label>
+                <input type="text" id="se-product" class="form-input" placeholder="e.g., Cowpea seeds (Ankur Ketaki)" required>
+                <div class="form-error" id="se-product-error" aria-live="polite"></div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group flex-1">
+                  <label for="se-price" class="form-label" data-i18n="formPrice">Retail Price (₹) <span class="required">*</span></label>
+                  <input type="number" id="se-price" class="form-input" placeholder="e.g., 340" min="1" required>
+                  <div class="form-error" id="se-price-error" aria-live="polite"></div>
+                </div>
+
+                <div class="form-group flex-1">
+                  <label for="se-unit" class="form-label" data-i18n="formUnit">Packaging Unit <span class="required">*</span></label>
+                  <input type="text" id="se-unit" class="form-input" placeholder="e.g., 500g pouch or 1L bottle" required>
+                  <div class="form-error" id="se-unit-error" aria-live="polite"></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="se-date" class="form-label" data-i18n="formDate">Verification Date <span class="required">*</span></label>
+                <input type="date" id="se-date" class="form-input" required>
+                <div class="form-error" id="se-date-error" aria-live="polite"></div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-secondary" data-i18n="btnSaveShopEntry">Log Entry into Prototype</button>
+                <button type="reset" class="btn btn-ghost" data-i18n="btnReset">Reset</button>
+              </div>
+              <div id="se-success-msg" class="form-success mt-2 hidden" role="status" aria-live="polite">
+                ✓ Shop inventory successfully staged! Visible in recent entries below.
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Recent Entries Demonstration List (Local Storage) -->
+        <div class="card mt-4 recent-entries-card">
+          <div class="entries-header">
+            <div>
+              <h3 data-i18n="recentEntriesTitle">Recent Submissions (Stored Locally)</h3>
+              <p class="text-muted" data-i18n="recentEntriesDesc">Saved directly to your browser localStorage. Use the delete button to clear individual items.</p>
+            </div>
+            <button id="clear-all-storage" class="btn btn-sm btn-outline text-danger" data-i18n="btnClearAllEntries">Clear All Saved Entries</button>
+          </div>
+
+          <div id="recent-entries-list" class="recent-entries-list mt-3" aria-live="polite">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-block">
+        <div class="footer-brand">
+          <span class="logo-icon" aria-hidden="true">🌱</span>
+          <span class="logo-text">Agri<strong>Local</strong></span>
+        </div>
+        <p class="footer-tagline">Empowering farming communities with digital shop discovery and transparent input pricing.</p>
+        <p class="footer-academic">
+          <strong>Community Service Project</strong><br>
+          Department of Electronics & Communication Engineering (ECE-A, 3rd Year)<br>
+          Raghu Engineering College, Visakhapatnam
+        </p>
+      </div>
+
+      <div class="footer-block">
+        <h4 data-i18n="footerQuickLinks">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html" data-i18n="navHome">Home</a></li>
+          <li><a href="shops.html" data-i18n="navShops">Shop Directory</a></li>
+          <li><a href="compare.html" data-i18n="navCompare">Price Compare</a></li>
+          <li><a href="project.html" data-i18n="navProject">Project Story</a></li>
+          <li><a href="gallery.html" data-i18n="navGallery">Field Gallery</a></li>
+          <li><a href="impact.html" data-i18n="navImpact">Community Impact</a></li>
+          <li><a href="feedback.html" data-i18n="navFeedback">Feedback & Entry</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-block">
+        <h4 data-i18n="footerFieldDetails">Field Details</h4>
+        <p class="footer-meta">
+          <strong>Village:</strong> Dakamarri Village<br>
+          <strong>Mandal:</strong> <span class="mandal-name">Bheemunipatnam Mandal</span><br>
+          <strong>District:</strong> Visakhapatnam, Andhra Pradesh<br>
+          <strong>PIN:</strong> 531162 | 17.9900° N, 83.4004° E<br>
+          <strong>Survey Date:</strong> 08 October 2026<br>
+          <strong>Cohort Reg. Nos.:</strong> 24981A0422 to 24981A0430
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container text-center">
+        <p>© 2026 AgriLocal CSP Initiative. Designed for rural accessibility & verified community demonstration.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll back to top" title="Back to top">
+    <span aria-hidden="true">↑</span>
+  </button>
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
